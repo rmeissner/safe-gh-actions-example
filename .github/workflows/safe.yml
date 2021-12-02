@@ -23,5 +23,6 @@ jobs:
           safe-tx-hash: ${{ github.event.issue.body }}
           safe-address: '0x94D998c2Cb35bD4388D1D5Ed71992bF4a802d7a9'
           service-url: 'https://safe-transaction.rinkeby.gnosis.io'
+          fail-on-unknown-delegatecall: 'false'
           # branch should not be protected
           branch: 'main'
