@@ -21,7 +21,7 @@ jobs:
         with:
           node-url: ${{ secrets.JSON_RPC_NODE }}
           safe-tx-hash: ${{ github.event.issue.body }}
-          safe-address: '0x89a3C5C9880Efc029984de67b81aba0FC45b44d8'
-          service-url: 'https://safe-transaction.mainnet.gnosis.io'
+          safe-address: '0x94D998c2Cb35bD4388D1D5Ed71992bF4a802d7a9'
+          service-url: 'https://safe-transaction.rinkeby.gnosis.io'
           # branch should not be protected
           branch: 'main'
