@@ -2,12 +2,16 @@ name: "Safe Tx Check"
 on:
   issues:
     types: [ opened ]
+  issue_comment:
+    types: [ created ]
 
 jobs:
   CLAssistant:
     runs-on: ubuntu-latest
+
     steps:
       - name: "Safe Tx Check"
+        if: github.event.comment.body == 'recheck' || github.event_name == 'issues'
         # Beta Release
         uses: rmeissner/safe-tx-gh-action@main
         env:
