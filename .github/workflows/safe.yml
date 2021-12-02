@@ -6,7 +6,7 @@ on:
     types: [ created ]
 
 jobs:
-  CLAssistant:
+  SafeTxCheck:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,9 @@ jobs:
           # the below token should have repo scope and must be manually added by you in the repository's secret
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         with:
+          node-url: ${{ secrets.JSON_RPC_NODE }}
+          safe-tx-hash: ${{ github.event.issue.body }}
           safe-address: '0xA294e0Ccf64C9ef0BB3d43a736eCb932C0E47CFD'
-          service-url: 'https://safe-transaction.rinkeby.gnosis.io/'
+          service-url: 'https://safe-transaction.rinkeby.gnosis.io'
           # branch should not be protected
           branch: 'main'
