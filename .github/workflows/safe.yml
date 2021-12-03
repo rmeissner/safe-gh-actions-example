@@ -1,18 +1,16 @@
 name: "Safe Tx Check"
-on:
-  issues:
-    types: [ opened ]
-  issue_comment:
-    types: [ created ]
+on: [ push ]
 
 jobs:
   SafeTxCheck:
     runs-on: ubuntu-latest
-
+    if: github.ref != 'refs/heads/main'
     steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=value;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: target
       - name: "Safe Tx Check"
-        if: github.event.comment.body == 'recheck' || github.event_name == 'issues'
-        # Beta Release
         uses: rmeissner/safe-tx-gh-action@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -20,8 +18,8 @@ jobs:
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         with:
           node-url: ${{ secrets.JSON_RPC_NODE }}
-          safe-tx-hash: ${{ github.event.issue.body }}
-          safe-address: '0x94D998c2Cb35bD4388D1D5Ed71992bF4a802d7a9'
+          check-target: ${{ steps.target.outputs.value }}
+          safe-address: '0x0DA0C3e52C977Ed3cBc641fF02DD271c3ED55aFe'
           service-url: 'https://safe-transaction.rinkeby.gnosis.io'
           fail-on-unknown-delegatecall: 'false'
           # branch should not be protected
