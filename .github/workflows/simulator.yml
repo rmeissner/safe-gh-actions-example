@@ -1,8 +1,8 @@
-name: "Safe Tx Check"
+name: "Safe Tx Simulation"
 on: [ push ]
 
 jobs:
-  SafeTxCheck:
+  simulator:
     runs-on: ubuntu-latest
     if: github.ref != 'refs/heads/main'
     steps:
@@ -10,8 +10,8 @@ jobs:
         shell: bash
         run: echo "##[set-output name=value;]$(echo ${GITHUB_REF#refs/heads/})"
         id: target
-      - name: "Safe Tx Check"
-        uses: rmeissner/safe-tx-gh-action@main
+      - name: "Safe Tx Simulation"
+        uses: rmeissner/safe-simulator-gh-action@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # the below token should have repo scope and must be manually added by you in the repository's secret
@@ -20,7 +20,7 @@ jobs:
           node-url: ${{ secrets.JSON_RPC_NODE }}
           check-target: ${{ steps.target.outputs.value }}
           safe-address: '0x0DA0C3e52C977Ed3cBc641fF02DD271c3ED55aFe'
-          service-url: 'https://safe-transaction.rinkeby.gnosis.io'
+          service-url: 'https://safe-transaction.mainnet.gnosis.io'
           fail-on-unknown-delegatecall: 'false'
           # branch should not be protected
           branch: 'main'
