@@ -19,7 +19,7 @@ jobs:
         with:
           node-url: ${{ secrets.JSON_RPC_NODE }}
           check-target: ${{ steps.target.outputs.value }}
-          safe-address: '0x0DA0C3e52C977Ed3cBc641fF02DD271c3ED55aFe'
+          safe-address: '0xfF501B324DC6d78dC9F983f140B9211c3EdB4dc7'
           service-url: 'https://safe-transaction.mainnet.gnosis.io'
           fail-on-unknown-delegatecall: 'false'
           # branch should not be protected
