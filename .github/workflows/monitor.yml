@@ -12,7 +12,7 @@ jobs:
       - name: "Safe Service Sync"
         uses: rmeissner/safe-service-monitor-gh-action@main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         with:
           safe-address: '0xfF501B324DC6d78dC9F983f140B9211c3EdB4dc7'
           service-url: 'https://safe-transaction.mainnet.gnosis.io'
