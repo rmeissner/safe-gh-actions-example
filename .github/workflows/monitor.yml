@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Safe Service Sync"
-        uses: rmeissner/safe-simulator-gh-action@main
+        uses: rmeissner/safe-service-monitor-gh-action@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
