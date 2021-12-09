@@ -32,13 +32,6 @@
          "transactionHash": null,
          "signature": "0x6ea68d1c0814f30f1158152d8ec7fcf7be56b39e96244293a34188080a7c6d94108e153a867b4f2954e47f5217d3413cea2995a43fb4ffd2ec829898c4aeb8f41c",
          "signatureType": "EOA"
-      },
-      {
-         "owner": "0x8712128BEA09C9687Df05A5D692F3750F8086C81",
-         "submissionDate": "2021-02-22T17:14:38.262815Z",
-         "transactionHash": null,
-         "signature": "0x0def4671ffd91f77d6f9a9970a25249b1cc33fc66739564264c1352a96b34c8f4bcb89b535e51e10afd713955f3d8ca24a425f9152e07c0c1bb78742285eb0451c",
-         "signatureType": "EOA"
       }
    ],
    "signatures": null
